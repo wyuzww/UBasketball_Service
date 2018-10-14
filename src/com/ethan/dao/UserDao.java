@@ -2,9 +2,12 @@ package com.ethan.dao;
 
 import java.sql.SQLException;
 
+import com.ethan.entity.User;
+
 public interface UserDao {
 	
 	/*
+	 * 注册功能
 	 * 将User保存至数据库中,成功返回user_id，失败返回0
 	 */
 	public int registersave(String user_number,String user_password) throws SQLException;
@@ -24,7 +27,22 @@ public interface UserDao {
 	 */
 	public int updateToken(int user_id,String token) throws SQLException; 
 	
+	/*
+	 * 验证token，正确返回user_id，否则返回0
+	 */
+	public int checkToken(String token) throws SQLException;
+	
+	/*
+	 * 根据id更改用户信息
+	 */
+	public int updateUser(int user_id,String user_image, String user_name, String user_sex, String user_birth, String user_signature) throws SQLException;
+	
+	/*
+	 * 
+	 */
 	
 	public void delete(int user_id) throws SQLException;
+
+	
 
 }

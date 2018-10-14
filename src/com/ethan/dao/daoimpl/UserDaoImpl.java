@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public int registersave(String user_number,String user_password) throws SQLException {
 		int code=0;
-		String sql = "insert into user_info values(null,?,?,?,null,null,null,null)";
+		String sql = "insert into user_info values(null,?,null,?,?,null,null,null,null)";
 //		new Thread(new Runnable() {
 //
 //			@Override
@@ -125,4 +125,36 @@ public class UserDaoImpl implements UserDao {
 		
 		return code;
 	}
+
+	@Override
+	public int checkToken(String user_token) throws SQLException {
+		// TODO 自动生成的方法存根
+		String sql = "select * from user_info where user_token=?";
+		user = qr.query(sql, new BeanHandler<User>(User.class),user_token);
+		if(user == null) {
+			return 0;
+		} else {
+			return user.getUser_id();
+		}
+	}
+
+	@Override
+	public int updateUser(int user_id,String user_image,String user_name,String user_sex,String user_birth,String user_signature) throws SQLException {
+		// TODO 自动生成的方法存根
+		int code=0;
+		String sql=null;
+		if (user_image!=null) {
+			sql="update user_info set user_image=?,user_name=?,user_sex=?,user_birth=?,user_signature=? where user_id=?";
+			code = qr.update(sql, user_image,user_name,user_sex,user_birth,user_signature,user_id);
+		} else {
+			sql="update user_info set user_name=?,user_sex=?,user_birth=?,user_signature=? where user_id=?";
+			code = qr.update(sql,user_name,user_sex,user_birth,user_signature,user_id);
+		}
+		
+		
+		
+		return code;
+	}
+	
+	
 }
