@@ -20,6 +20,7 @@ import com.ethan.service.LoginByMessageService;
 @WebServlet("/LoginByMessage")
 public class LoginByMessageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,6 +43,8 @@ public class LoginByMessageServlet extends HttpServlet {
         // 验证处理
         int code = ls.login(user_number);
         
+        
+        
         String msg = null;
         if(code==0) {
         	msg = "登陆成功";
@@ -55,6 +58,7 @@ public class LoginByMessageServlet extends HttpServlet {
         map.put("code",code);
         map.put("msg",msg);
         map.put("user",ls.getManager().getUser());
+//        map.put("user",user);
         
         String jsonString = JSON.toJSONString(map);
         System.out.println(jsonString);

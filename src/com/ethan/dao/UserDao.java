@@ -40,9 +40,17 @@ public interface UserDao {
 	/*
 	 * 
 	 */
-	
 	public void delete(int user_id) throws SQLException;
+	
+	/*
+	 * 根据user_id修改密码
+	 */
+	public int resetPassword(int user_id,String user_password) throws SQLException;
 
+	/**
+	 * 根据user_id获取某用户的关注对象
+	 */
+	public int getFollowing(int user_id) throws SQLException;
 	
 
 }

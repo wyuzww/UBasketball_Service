@@ -11,7 +11,12 @@ public interface  NewsDao {
 	 * @param news
 	 * @return
 	 */
-	public  int updateNews(News news) throws SQLException;
+	public int updateNews(News news) throws SQLException;
+	
+	/**
+	 * 获取全部News
+	 */
+	public int getAllNews() throws SQLException;
 
 	
 	

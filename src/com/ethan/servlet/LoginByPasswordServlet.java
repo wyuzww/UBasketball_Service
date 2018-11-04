@@ -20,7 +20,6 @@ import com.ethan.service.LoginByPasswordService;
 @WebServlet("/LoginByPassword")
 public class LoginByPasswordServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -58,6 +57,7 @@ public class LoginByPasswordServlet extends HttpServlet {
         map.put("code",code);
         map.put("msg",msg);
         map.put("user",ls.getManager().getUser());
+//        map.put("user",user);
         
         String jsonString = JSON.toJSONString(map);
         System.out.println(jsonString);
@@ -68,26 +68,6 @@ public class LoginByPasswordServlet extends HttpServlet {
 		printWriter.write(jsonString);
 		printWriter.flush();
 		printWriter.close();
-        
-//        if (code==0) {
-//        	System.out.println(ls.getManager().getUser().getUser_token());
-//        	PrintWriter printWriter = response.getWriter();
-//    		printWriter.write("Succss:登录成功！");
-//    		printWriter.close();
-//            System.out.println("Succss:登录成功！");
-////            request.getSession().setAttribute("user_number", user_number);
-//            // response.sendRedirect("welcome.jsp");
-//        } else {
-//        	PrintWriter printWriter = response.getWriter();
-//    		printWriter.write("Failed:登录失败！");
-//    		printWriter.close();
-//            System.out.println("Failed:登录失败！");
-//        }
-        
-        
-        
-		
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

@@ -9,6 +9,10 @@ public class News {
     private String news_pic_url1;
     private String news_pic_url2;
     private String news_pic_url3;
+    
+    public News() {
+    	
+    }
 
     public News(int news_id, String news_title, String news_date, String news_author, String news_url, String news_pic_url1, String news_pic_url2, String news_pic_url3) {
         this.news_id = news_id;

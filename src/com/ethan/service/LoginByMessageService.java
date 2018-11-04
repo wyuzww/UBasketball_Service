@@ -3,10 +3,12 @@ package com.ethan.service;
 import java.sql.SQLException;
 
 import com.ethan.dao.daoimpl.UserDaoImpl;
+import com.ethan.entity.User;
 import com.ethan.utils.TokenManager;
 
 public class LoginByMessageService {
 	private UserDaoImpl manager = new UserDaoImpl();
+
 
 	public int login(String user_number) {
 		// TODO 自动生成的方法存根

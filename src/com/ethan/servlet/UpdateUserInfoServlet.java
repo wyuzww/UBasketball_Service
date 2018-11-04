@@ -42,14 +42,6 @@ public class UpdateUserInfoServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
-		
-     // 接收客户端信息
- //       String user_token = Util.inputStream2String(request.getPart("user_token").getInputStream());
-//        Part part = request.getPart("Content-Disposition");
-//        String user_token = Util.inputStream2String(part.getName().getInputStream());
-//        String string = Util.inputStream2String(request.getInputStream());
-//        Part part = request.getPart("user_token");
-//        System.out.println(part);
         
         Map<String, String> param = null;
         String ImagePath = null;
